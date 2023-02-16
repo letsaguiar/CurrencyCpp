@@ -1,0 +1,22 @@
+name: Quality Control
+
+on: [ push ]
+
+jobs:
+  test:
+    name: Unit Test
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Setup cmake
+        uses: jwlawson/actions-setup-cmake@v1.13
+        with:
+          cmake-version: '3.25.x'
+
+      - name: Build project
+        run: cmake -B build && cmake --build build
+
+      - name: Run tests
+        run: cd build && ctest
