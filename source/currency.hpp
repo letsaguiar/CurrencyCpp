@@ -1,5 +1,6 @@
 #include <string>
 #include <cmath>
+#include <regex>
 
 namespace Currency {
     class Currency {
