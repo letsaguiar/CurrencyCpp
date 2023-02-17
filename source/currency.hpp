@@ -164,5 +164,11 @@ namespace Currency {
 
                 return t_value;
             }
+
+            // TODO: Implement toUnit and refactor.
+            Currency equalizePrecision(Currency t_value) {
+                double amount = t_value.amount / pow(10, t_value.precision);
+                return Currency(amount, this->precision);
+            }
     };
 }

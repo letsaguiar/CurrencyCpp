@@ -6,47 +6,28 @@ FetchContent_Declare(
 set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
 FetchContent_MakeAvailable(googletest)
 
-########### InitTest ###########
-
 add_executable(
-    InitTest
+    UnitTest
+
     init/init_test.cc
+    add/add_test.cc
+
     ../source/currency.hpp
     ../source/init/init.cpp
-)
-
-target_include_directories(
-    InitTest
-    PRIVATE ../source
-)
-
-target_link_libraries(
-    InitTest
-    gtest_main
-)
-
-########### AddTest ###########
-
-add_executable(
-    AddTest
-    add/add_test.cc
-    ../source/currency.hpp
     ../source/add/add.cpp
 )
 
 target_include_directories(
-    AddTest
+    UnitTest
     PRIVATE ../source
 )
 
 target_link_libraries(
-    AddTest
+    UnitTest
     gtest_main
 )
 
-########### gtest_discover ###########
-
 include(GoogleTest)
 gtest_discover_tests(
-    InitTest
+    UnitTest
 )
