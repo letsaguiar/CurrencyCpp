@@ -156,5 +156,13 @@ namespace Currency {
              * with its cents rounded.
             */
             double toRoundedUnit();
-    };      
+
+        private:
+            std::string sanitizeStrValue(std::string t_value) {
+                t_value = std::regex_replace(t_value, std::regex("[^(0-9)(.)(,)(\\-)]"), "");
+                t_value = std::regex_replace(t_value, std::regex("[,]"), ".");
+
+                return t_value;
+            }
+    };
 }

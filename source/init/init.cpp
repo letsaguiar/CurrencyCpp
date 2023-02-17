@@ -11,8 +11,7 @@ Currency::Currency::Currency(double amount, int precision) {
 }
 
 Currency::Currency::Currency(std::string amount, int precision) {
-    amount = std::regex_replace(amount, std::regex("[^(0-9)(.)(,)(\\-)]"), "");
-    amount = std::regex_replace(amount, std::regex("[,]"), ".");
+    amount = this->sanitizeStrValue(amount);
 
     this->amount = std::stod(amount) * pow(10, precision);
     this->precision = precision;
