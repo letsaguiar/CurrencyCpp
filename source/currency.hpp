@@ -156,5 +156,19 @@ namespace Currency {
              * with its cents rounded.
             */
             double toRoundedUnit();
-    };      
+
+        private:
+            std::string sanitizeStrValue(std::string t_value) {
+                t_value = std::regex_replace(t_value, std::regex("[^(0-9)(.)(,)(\\-)]"), "");
+                t_value = std::regex_replace(t_value, std::regex("[,]"), ".");
+
+                return t_value;
+            }
+
+            // TODO: Implement toUnit and refactor.
+            Currency equalizePrecision(Currency t_value) {
+                double amount = t_value.amount / pow(10, t_value.precision);
+                return Currency(amount, this->precision);
+            }
+    };
 }

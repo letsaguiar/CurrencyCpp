@@ -7,23 +7,27 @@ set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
 FetchContent_MakeAvailable(googletest)
 
 add_executable(
-    initialization_test
-    initialization_test.cc
+    UnitTest
+
+    init/init_test.cc
+    add/add_test.cc
+
     ../source/currency.hpp
-    ../source/initialization.cpp
+    ../source/init/init.cpp
+    ../source/add/add.cpp
 )
 
 target_include_directories(
-    initialization_test
+    UnitTest
     PRIVATE ../source
 )
 
 target_link_libraries(
-    initialization_test
+    UnitTest
     gtest_main
 )
 
 include(GoogleTest)
 gtest_discover_tests(
-  initialization_test
+    UnitTest
 )
