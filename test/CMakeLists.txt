@@ -13,12 +13,14 @@ add_executable(
     add/add_test.cc
     subtract/subtract_test.cc
     multiply/multiply_test.cc
+    divide/divide_test.cc
 
     ../source/currency.hpp
     ../source/init/init.cpp
     ../source/add/add.cpp
     ../source/subtract/subtract.cpp
     ../source/multiply/multiply.cpp
+    ../source/divide/divide.cpp
 )
 
 target_include_directories(
