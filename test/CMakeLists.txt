@@ -11,10 +11,12 @@ add_executable(
 
     init/init_test.cc
     add/add_test.cc
+    multiply/multiply_test.cc
 
     ../source/currency.hpp
     ../source/init/init.cpp
     ../source/add/add.cpp
+    ../source/multiply/multiply.cpp
 )
 
 target_include_directories(
