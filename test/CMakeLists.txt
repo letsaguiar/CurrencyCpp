@@ -11,11 +11,13 @@ add_executable(
 
     init/init_test.cc
     add/add_test.cc
+    subtract/subtract_test.cc
     multiply/multiply_test.cc
 
     ../source/currency.hpp
     ../source/init/init.cpp
     ../source/add/add.cpp
+    ../source/subtract/subtract.cpp
     ../source/multiply/multiply.cpp
 )
 
