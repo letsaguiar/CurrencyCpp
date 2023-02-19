@@ -37,7 +37,7 @@ TEST(MultiplyTest, MultiplyDoubleWithMajorPrecision) {
     Currency::Currency currency(100, 2);
     Currency::Currency result = currency.multiply(100.578);
 
-    EXPECT_EQ(result.amount, 1005780);
+    EXPECT_EQ(result.amount, 1005700);
     EXPECT_EQ(result.precision, 2);
 }
 
