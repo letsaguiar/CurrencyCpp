@@ -1,17 +1,36 @@
 #include "currency.hpp"
+#include <iostream>
 
 Currency::Currency Currency::Currency::divide(int t_value) {
-    return Currency(0, 0);
+    int value = t_value * pow(10, this->precision);
+    
+    double amount = (double)this->amount / (double)value;
+
+    return Currency(amount, this->precision);
 }
 
 Currency::Currency Currency::Currency::divide(double t_value) {
-    return Currency(0, 0);
+    int value = t_value * pow(10, this->precision);
+
+    double amount = (double)this->amount / (double)value;
+
+    return Currency(amount, this->precision);
 }
 
 Currency::Currency Currency::Currency::divide(std::string t_value) {
-    return Currency(0, 0);
+    t_value = this->sanitizeStrValue(t_value);
+
+    int value = std::stod(t_value) * pow(10, this->precision);
+
+    double amount = (double)this->amount / (double)value;
+
+    return Currency(amount, this->precision);
 }
 
 Currency::Currency Currency::Currency::divide(Currency t_value) {
-    return Currency(0, 0);
+    t_value = this->equalizePrecision(t_value);
+
+    double amount = (double)this->amount / (double)t_value.amount;
+
+    return Currency(amount, this->precision);
 }
