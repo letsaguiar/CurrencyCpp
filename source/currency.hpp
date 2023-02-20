@@ -158,17 +158,18 @@ namespace Currency {
             double toRoundedUnit();
 
         private:
-            std::string sanitizeStrValue(std::string t_value) {
-                t_value = std::regex_replace(t_value, std::regex("[^(0-9)(.)(,)(\\-)]"), "");
-                t_value = std::regex_replace(t_value, std::regex("[,]"), ".");
+            /**
+             * Transforms the given value to a valid amount.
+            */
+            int extractAmountHelper(int t_value);
+            int extractAmountHelper(double t_value);
+            int extractAmountHelper(std::string t_value);
+            int extractAmountHelper(Currency t_value);
 
-                return t_value;
-            }
-
-            // TODO: Implement toUnit and refactor.
-            Currency equalizePrecision(Currency t_value) {
-                double amount = t_value.amount / pow(10, t_value.precision);
-                return Currency(amount, this->precision);
-            }
+            /**
+             * Transforms the given currency to a new one
+             * where the precision is equal to the current one.
+            */
+            Currency equalizePrecisionHelper(Currency t_value);
     };
 }
