@@ -15,9 +15,9 @@ namespace Currency {
             */
             int precision;
             
-            Currency(int amount, int precision);
-            Currency(double amount, int precision);
-            Currency(std::string amount, int precision);
+            Currency(int t_value, int t_precision);
+            Currency(double t_value, int t_precision);
+            Currency(std::string t_value, int t_precision);
 
             /**
              * Returns the amount of the currency.
