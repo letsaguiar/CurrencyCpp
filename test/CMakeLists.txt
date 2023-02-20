@@ -21,6 +21,7 @@ add_executable(
     ../source/subtract/subtract.cpp
     ../source/multiply/multiply.cpp
     ../source/divide/divide.cpp
+    ../source/helpers/helpers.cpp
 )
 
 target_include_directories(
