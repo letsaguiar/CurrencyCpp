@@ -1,18 +1,20 @@
 #include "currency.hpp"
+#include <iostream>
 
-Currency::Currency::Currency(int amount, int precision) {
-    this->amount = amount * pow(10, precision);
-    this->precision = precision;
+Currency::Currency::Currency(int t_amount, int t_precision) {
+    this->amount = t_amount * pow(10, t_precision);
+    this->precision = t_precision;
 }
 
-Currency::Currency::Currency(double amount, int precision) {
-    this->amount = amount * pow(10, precision);
-    this->precision = precision;
+Currency::Currency::Currency(double t_amount, int t_precision) {
+    this->amount = t_amount * pow(10, t_precision);
+    this->precision = t_precision;
 }
 
-Currency::Currency::Currency(std::string amount, int precision) {
-    amount = this->sanitizeStrValue(amount);
-
-    this->amount = std::stod(amount) * pow(10, precision);
-    this->precision = precision;
+Currency::Currency::Currency(std::string t_amount, int t_precision) {
+    t_amount = std::regex_replace(t_amount, std::regex("[^(0-9)(.)(,)(\\-)]"), "");
+    t_amount = std::regex_replace(t_amount, std::regex("[,]"), ".");
+    
+    this->amount = std::stod(t_amount) * pow(10, t_precision);
+    this->precision = t_precision;
 }
