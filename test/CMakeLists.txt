@@ -15,6 +15,7 @@ add_executable(
     multiply/multiply_test.cc
     divide/divide_test.cc
     amount/amount_test.cc
+    precision/precision_test.cc
 
     ../source/currency.hpp
     ../source/init/init.cpp
@@ -24,6 +25,7 @@ add_executable(
     ../source/divide/divide.cpp
     ../source/helpers/helpers.cpp
     ../source/amount/amount.cpp
+    ../source/precision/precision.cpp
 )
 
 target_include_directories(
