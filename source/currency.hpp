@@ -74,7 +74,7 @@ namespace Currency {
              * Returns a new currency object that represents
              * the requested percentage of the current currency object.
             */
-            Currency percentage(int t_value);
+            Currency percentage(double t_value);
 
             /**
              * Checks if the value of the current currency object

@@ -1,7 +1,7 @@
 #include <gtest/gtest.h>
 #include "currency.hpp"
 
-TEST(PercentageTest, Percentage) {
+TEST(PercentageTest, IntPercentage) {
     Currency:: Currency currency(100, 2);
     Currency:: Currency result = currency.percentage(10);
 
@@ -9,7 +9,15 @@ TEST(PercentageTest, Percentage) {
     EXPECT_EQ(result.precision, 2);
 }
 
-TEST(PercentageTest, PercentageNegative) {
+TEST(PercentageTest, DoublePercentage) {
+    Currency:: Currency currency(100, 2);
+    Currency:: Currency result = currency.percentage(25.75);
+
+    EXPECT_EQ(result.amount, 2575);
+    EXPECT_EQ(result.precision, 2);
+}
+
+TEST(PercentageTest, NegativePercentage) {
     Currency:: Currency currency(-100, 2);
     Currency:: Currency result = currency.percentage(10);
 
