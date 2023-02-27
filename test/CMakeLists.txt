@@ -18,6 +18,7 @@ add_executable(
     precision/precision_test.cc
     percentage/percentage_test.cc
     equals_to/equals_to_test.cc
+    greater_than/greater_than_test.cc
 
     ../source/currency.hpp
     ../source/init/init.cpp
@@ -30,6 +31,7 @@ add_executable(
     ../source/precision/precision.cpp
     ../source/percentage/percentage.cpp
     ../source/equals_to/equals_to.cpp
+    ../source/greater_than/greater_than.cpp
 )
 
 target_include_directories(
