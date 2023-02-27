@@ -71,11 +71,9 @@ namespace Currency {
             Currency divide(std::string t_value);
 
             /**
-             * Returns a new currency object that calculates
-             * the percentage of the current currency object.
+             * Returns a new currency object that represents
+             * the requested percentage of the current currency object.
             */
-            Currency percentage(Currency t_value);
-            Currency percentage(int t_value);
             Currency percentage(double t_value);
 
             /**
