@@ -17,6 +17,7 @@ add_executable(
     amount/amount_test.cc
     precision/precision_test.cc
     percentage/percentage_test.cc
+    equals_to/equals_to_test.cc
 
     ../source/currency.hpp
     ../source/init/init.cpp
@@ -28,6 +29,7 @@ add_executable(
     ../source/amount/amount.cpp
     ../source/precision/precision.cpp
     ../source/percentage/percentage.cpp
+    ../source/equals_to/equals_to.cpp
 )
 
 target_include_directories(
