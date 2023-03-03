@@ -20,6 +20,7 @@ add_executable(
     equals_to/equals_to_test.cc
     greater_than/greater_than_test.cc
     less_than/less_than_test.cc
+    greater_than_or_equal/greater_than_or_equal_test.cc
 
     ../source/currency.hpp
     ../source/init/init.cpp
@@ -34,6 +35,7 @@ add_executable(
     ../source/equals_to/equals_to.cpp
     ../source/greater_than/greater_than.cpp
     ../source/less_than/less_than.cpp
+    ../source/greater_than_or_equal/greater_than_or_equal.cpp
 )
 
 target_include_directories(
