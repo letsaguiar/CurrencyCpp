@@ -1,10 +1,10 @@
 #include "currency.hpp"
 
-int Currency::Currency::getPrecision() {
+int CurrencyCpp::Currency::getPrecision() {
     return this->precision;
 }
 
-void Currency::Currency::setPrecision(int t_precision) {
+void CurrencyCpp::Currency::setPrecision(int t_precision) {
     // TODO: Implement toUnit and refactor
     const double amount = this->amount / pow(10, this->precision);
 

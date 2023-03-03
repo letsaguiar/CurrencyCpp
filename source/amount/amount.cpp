@@ -1,5 +1,5 @@
 #include "currency.hpp"
 
-int Currency::Currency::getAmount() {
+int CurrencyCpp::Currency::getAmount() {
     return this->amount;
 }

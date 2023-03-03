@@ -1,13 +1,13 @@
 #include "currency.hpp"
 
-bool Currency::Currency::isZero() {
+bool CurrencyCpp::Currency::isZero() {
     return this->amount == 0;
 }
 
-bool Currency::Currency::isPositive() {
+bool CurrencyCpp::Currency::isPositive() {
     return this->amount > 0;
 }
 
-bool Currency::Currency::isNegative() {
+bool CurrencyCpp::Currency::isNegative() {
     return this->amount < 0;
 }
