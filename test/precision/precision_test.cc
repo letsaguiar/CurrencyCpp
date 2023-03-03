@@ -2,13 +2,13 @@
 #include "currency.hpp"
 
 TEST(GetPrecision, GetPrecision) {
-    Currency::Currency currency(100, 2);
+    CurrencyCpp::Currency currency(100, 2);
 
     EXPECT_EQ(currency.getPrecision(), 2);
 }
 
 TEST(SetPrecision, IncreasePrecision) {
-    Currency::Currency currency(100, 2);
+    CurrencyCpp::Currency currency(100, 2);
 
     currency.setPrecision(3);
 
@@ -17,7 +17,7 @@ TEST(SetPrecision, IncreasePrecision) {
 }
 
 TEST(SetPrecision, DecreasePrecision) {
-    Currency::Currency currency(100.52, 2);
+    CurrencyCpp::Currency currency(100.52, 2);
 
     currency.setPrecision(1);
 

@@ -2,7 +2,7 @@
 #include <cmath>
 #include <regex>
 
-namespace Currency {
+namespace CurrencyCpp {
     class Currency {
         public:
             /**
