@@ -138,12 +138,7 @@ namespace CurrencyCpp {
              * is negative.
             */
             bool isNegative();
-
-            /**
-             * Returns a string representation of the currency object.
-            */
-            std::string toFormat();
-
+            
             /**
              * Returns the amount of the currency object in units.
             */

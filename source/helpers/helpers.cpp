@@ -19,7 +19,6 @@ int CurrencyCpp::Currency::extractAmountHelper(Currency t_value) {
 }
 
 CurrencyCpp::Currency CurrencyCpp::Currency::equalizePrecisionHelper(Currency t_value) {
-    // TODO: Implement toUnit and refactor
-    double amount = t_value.amount / pow(10, t_value.precision);
+    double amount = t_value.toUnit();
     return Currency(amount, this->precision);
 }
