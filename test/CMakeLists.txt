@@ -18,4 +18,5 @@ add_executable(
     to_unit/to_unit_test.cc
 )
 
-target_include_directories(UnitTest PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
+include(GoogleTest)
+gtest_discover_tests(UnitTest)
