@@ -1,7 +1,12 @@
 cmake_minimum_required(VERSION 3.25)
 set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-project(Currency)
+project(CurrencyCpp
+  VERSION 1.0.0
+  LANGUAGES CXX
+  HOMEPAGE_URL "https://github.com/letsaguiar/CurrencyCpp"
+)
 enable_testing()
 
 add_subdirectory(source)
