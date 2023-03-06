@@ -5,6 +5,9 @@
     <img src="https://img.shields.io/github/languages/code-size/letsaguiar/CurrencyCpp?style=for-the-badge">
     <img src="https://img.shields.io/github/license/letsaguiar/CurrencyCpp?style=for-the-badge">
     <img src="https://img.shields.io/github/v/release/letsaguiar/CurrencyCpp?style=for-the-badge">
+    <a href="https://codecov.io/gh/letsaguiar/CurrencyCpp" > 
+      <img src="https://codecov.io/gh/letsaguiar/CurrencyCpp/branch/master/graph/badge.svg?token=ZJS090gni4"/> 
+    </a>
 </p>
 
 CurrencyCpp is a library that uses all the power of Object-Oriented Programming to perform correct operations and comparisons when working with decimal point values.
