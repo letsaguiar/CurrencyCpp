@@ -46,6 +46,7 @@ target_include_directories(CurrencyCpp PUBLIC source)
 add_executable(
     UnitTests
 
+    test/main.cc
     test/init/init_test.cc
     test/add/add_test.cc
     test/subtract/subtract_test.cc
