@@ -8,18 +8,6 @@ project(CurrencyCpp
     LANGUAGES CXX
     HOMEPAGE_URL "https://github.com/letsaguiar/CurrencyCpp"
 )
-enable_testing()
-
-# ---------- Google Test ----------
-include(FetchContent)
-FetchContent_Declare(
-  googletest
-  URL https://github.com/google/googletest/archive/refs/tags/v1.13.0.zip
-)
-set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
-FetchContent_MakeAvailable(googletest)
-
-include(GoogleTest)
 
 # ---------- CurrencyCpp ----------
 add_library(CurrencyCpp STATIC
@@ -43,44 +31,66 @@ add_library(CurrencyCpp STATIC
 )
 target_include_directories(CurrencyCpp PUBLIC source)
 
-# ---------- Unit Tests ----------
-add_executable(
-    UnitTests
+set(MAIN_PROJECT OFF)
+if(CMAKE_CURRENT_SOURCE_DIR STREQUAL CMAKE_SOURCE_DIR)
+    set(MAIN_PROJECT ON)
+endif()
 
-    test/main.cc
-    test/init/init_test.cc
-    test/add/add_test.cc
-    test/subtract/subtract_test.cc
-    test/multiply/multiply_test.cc
-    test/divide/divide_test.cc
-    test/amount/amount_test.cc
-    test/precision/precision_test.cc
-    test/percentage/percentage_test.cc
-    test/equals_to/equals_to_test.cc
-    test/greater_than/greater_than_test.cc
-    test/less_than/less_than_test.cc
-    test/greater_than_or_equal/greater_than_or_equal_test.cc
-    test/less_than_or_equal/less_than_or_equal_test.cc
-    test/is/is_test.cc
-    test/to_unit/to_unit_test.cc
-)
-target_include_directories(UnitTests PUBLIC test)
-target_link_libraries(UnitTests CurrencyCpp)
-target_link_libraries(UnitTests gtest gtest_main)
-target_link_libraries(UnitTests gcov)
-gtest_discover_tests(UnitTests)
+if(${MAIN_PROJECT})
+    # ---------- Google Test ----------
+    include(FetchContent)
+    FetchContent_Declare(
+    googletest
+    URL https://github.com/google/googletest/archive/refs/tags/v1.13.0.zip
+    )
+    set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
+    FetchContent_MakeAvailable(googletest)
 
-add_custom_target(coverage
-    COMMAND ctest
+    include(GoogleTest)
 
-    COMMAND lcov -c -d . -o full_coverage.info
+    # ---------- Enable Testing ----------
+    enable_testing()
 
-    COMMAND "lcov" 
-        "-o" "coverage.info" 
-        "-r" "full_coverage.info"
-        "'/usr/include/*'"
-        "'*/googletest/*'"
-        "'*/test/*'"
+    # ---------- Unit Tests ----------
+    add_executable(
+        UnitTests
 
-    COMMAND genhtml coverage.info -o coverage
-)
+        test/main_test.cc
+        test/init/init_test.cc
+        test/add/add_test.cc
+        test/subtract/subtract_test.cc
+        test/multiply/multiply_test.cc
+        test/divide/divide_test.cc
+        test/amount/amount_test.cc
+        test/precision/precision_test.cc
+        test/percentage/percentage_test.cc
+        test/equals_to/equals_to_test.cc
+        test/greater_than/greater_than_test.cc
+        test/less_than/less_than_test.cc
+        test/greater_than_or_equal/greater_than_or_equal_test.cc
+        test/less_than_or_equal/less_than_or_equal_test.cc
+        test/is/is_test.cc
+        test/to_unit/to_unit_test.cc
+    )
+    target_include_directories(UnitTests PUBLIC test)
+    target_link_libraries(UnitTests CurrencyCpp)
+    target_link_libraries(UnitTests gtest gtest_main)
+    target_link_libraries(UnitTests gcov)
+    gtest_discover_tests(UnitTests)
+
+    # ---------- Coverage ----------
+    add_custom_target(coverage
+        COMMAND ctest
+
+        COMMAND lcov -c -d . -o full_coverage.info
+
+        COMMAND "lcov" 
+            "-o" "coverage.info" 
+            "-r" "full_coverage.info"
+            "'/usr/include/*'"
+            "'*/googletest/*'"
+            "'*/test/*'"
+
+        COMMAND genhtml coverage.info -o coverage
+    )
+endif()
