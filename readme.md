@@ -1,5 +1,12 @@
 # CurrencyCpp 
 
+<p align="center">
+    <img src="https://img.shields.io/github/actions/workflow/status/letsaguiar/CurrencyCpp/quality-control.yaml?style=for-the-badge">
+    <img src="https://img.shields.io/github/languages/code-size/letsaguiar/CurrencyCpp?style=for-the-badge">
+    <img src="https://img.shields.io/github/license/letsaguiar/CurrencyCpp?style=for-the-badge">
+    <img src="https://img.shields.io/github/v/release/letsaguiar/CurrencyCpp?style=for-the-badge">
+</p>
+
 CurrencyCpp is a library that uses all the power of Object-Oriented Programming to perform correct operations and comparisons when working with decimal point values.
 
 To ensure the accuracy of the calculations, all operations are performed using integer values. So when you're using CurrencyCpp you can define your calculus' precision, perform operations and comparisions and convert it to a native double type knowing that the desired precision is being maintained.
