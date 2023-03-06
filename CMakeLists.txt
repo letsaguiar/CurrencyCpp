@@ -72,6 +72,14 @@ gtest_discover_tests(UnitTests)
 
 add_custom_target(coverage
     COMMAND ctest
-    COMMAND lcov -c -d . -o coverage.info
+    COMMAND lcov -c -d . -o full_coverage.info
+    
+    COMMAND "lcov" 
+        "-o" "coverage.info" 
+        "-r" "full_coverage.info"
+        "'/usr/include/*'"
+        "'*/googletest/*'"
+        "'*/test/*'"
+
     COMMAND genhtml coverage.info -o coverage
 )
