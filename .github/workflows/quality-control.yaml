@@ -4,7 +4,7 @@ on: [ push ]
 
 jobs:
   test:
-    name: Unit Test
+    name: Unit Tests
     runs-on: ubuntu-latest
 
     steps:
@@ -13,5 +13,11 @@ jobs:
       - name: Build project
         run: cmake -B build && cmake --build build
 
+      - name: Install lcov and genhtml
+        run: sudo apt-get install -y lcov
+
       - name: Run tests
-        run: cd build && ctest
+        run: cd build && make coverage
+
+      - name: Upload coverage reports to Codecov
+        uses: codecov/codecov-action@v3
