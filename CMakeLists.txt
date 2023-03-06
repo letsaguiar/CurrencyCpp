@@ -1,6 +1,7 @@
 cmake_minimum_required(VERSION 3.25)
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
+add_compile_options("--coverage")
 
 project(CurrencyCpp
     VERSION 1.0.0
@@ -66,4 +67,11 @@ add_executable(
 target_include_directories(UnitTests PUBLIC test)
 target_link_libraries(UnitTests CurrencyCpp)
 target_link_libraries(UnitTests gtest gtest_main)
+target_link_libraries(UnitTests gcov)
 gtest_discover_tests(UnitTests)
+
+add_custom_target(coverage
+    COMMAND ctest
+    COMMAND lcov -c -d . -o coverage.info
+    COMMAND genhtml coverage.info -o coverage
+)
